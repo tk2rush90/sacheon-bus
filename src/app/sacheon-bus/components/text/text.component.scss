@@ -1,0 +1,44 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  display: inline-block;
+
+  &.sb-default {
+    font-size: 16px;
+    line-height: 19px;
+    color: $black;
+  }
+
+  &.sb-grey-text {
+    font-size: 16px;
+    line-height: 19px;
+    color: $dark-grey;
+  }
+
+  &.sb-next-destination {
+    font-size: 14px;
+    line-height: 16px;
+    color: $cobalt;
+  }
+
+  &.sb-sub-title {
+    font-size: 20px;
+    line-height: 23px;
+    color: $white;
+  }
+
+  &.sb-default-white {
+    font-size: 16px;
+    line-height: 19px;
+    color: $white;
+  }
+
+  &.sb-line-number {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 35px;
+    color: $cobalt;
+  }
+}

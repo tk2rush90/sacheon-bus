@@ -1,0 +1,58 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  display: block;
+}
+
+// search header
+.sb-header {
+  @include flex(center);
+  height: 30px;
+
+  // header icon
+  app-icon {
+    ::ng-deep {
+      path {
+        fill: $white;
+      }
+    }
+
+    @include box(24px);
+  }
+
+  // header text
+  app-text {
+    margin-left: 3px;
+  }
+}
+
+// content
+.sb-content {
+  @include flex();
+  margin-top: 20px;
+}
+
+app-search {
+  // {total-width} - {button-width} - {margin}
+  width: calc(100% - 200px - 20px);
+}
+
+// button
+button {
+  @include rect(200px, 50px);
+  margin-left: 20px;
+
+  // place icon
+  app-icon {
+    ::ng-deep {
+      path {
+        fill: $white;
+      }
+    }
+
+    @include box(24px);
+    margin-left: 3px;
+  }
+}

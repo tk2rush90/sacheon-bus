@@ -1,0 +1,10 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  display: block;
+  width: calc(100% - 20px);
+  max-width: 600px;
+  margin: 0 auto;
+}

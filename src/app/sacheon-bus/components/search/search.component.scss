@@ -1,0 +1,31 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include default-shadow;
+  position: relative;
+  display: block;
+  background-color: $white;
+}
+
+// input
+input {
+  @include padding(0 54px 0 15px);
+  width: 100%;
+}
+
+// search icon
+app-icon {
+  ::ng-deep {
+    path {
+      fill: $dark-grey;
+    }
+  }
+
+  @include box(24px);
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -12px;
+}

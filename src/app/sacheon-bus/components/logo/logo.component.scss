@@ -1,0 +1,19 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center, center, column);
+  @include padding(50px 0);
+}
+
+// logo size
+app-icon {
+  @include rect(215.16px, 80px);
+}
+
+// subtitle
+app-text {
+  text-align: center;
+  margin-top: 5px;
+}

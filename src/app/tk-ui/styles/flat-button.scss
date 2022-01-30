@@ -1,0 +1,38 @@
+@import "mixins";
+@import "props";
+
+@mixin flat-button($color, $font-color, $background, $hover-background, $active-background) {
+  @include attribute-styles('tk-color', $color) {
+    color: $font-color;
+    background-color: $background;
+
+    &:not(:disabled) {
+      @include clickable();
+
+      &:hover {
+        background-color: $hover-background;
+      }
+
+      &:active {
+        background-color: $active-background;
+      }
+    }
+
+    &:disabled {
+      opacity: .3;
+    }
+
+    // additional content
+    @content;
+  }
+}
+
+// flat button
+.tk-flat-button {
+  @include flex(center, center);
+  @include default-shadow;
+  font-size: 16px;
+
+  @include flat-button('default', $black, #E1E1E1, darken(#E1E1E1, 5%), darken(#E1E1E1, 10%));
+  @include flat-button('cornflower-blue', $white, $cornflower-blue, darken($cornflower-blue, 5%), darken($cornflower-blue, 10%));
+}

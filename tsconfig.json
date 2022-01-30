@@ -21,7 +21,15 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@tk-ui/*": [
+        "src/app/tk-ui/*"
+      ],
+      "@sb/*": [
+        "src/app/sacheon-bus/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

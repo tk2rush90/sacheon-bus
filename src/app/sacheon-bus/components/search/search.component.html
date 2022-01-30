@@ -1,0 +1,10 @@
+<!-- input -->
+<input
+  (ngModelChange)="searchChange.emit($event)"
+  [ngModel]="search"
+  [readonly]="readOnly"
+  appInput
+  placeholder="정류장 검색"/>
+
+<!-- search icon -->
+<app-icon name="search"></app-icon>

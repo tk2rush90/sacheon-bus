@@ -1,0 +1,14 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include padding(20px);
+  @include default-shadow;
+  background-color: $white;
+  display: block;
+  width: calc(100% - 20px);
+  max-width: 600px;
+  height: 500px;
+}
+

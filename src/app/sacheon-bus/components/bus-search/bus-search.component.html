@@ -1,0 +1,29 @@
+<!-- header -->
+<div class="sb-header">
+  <!-- icon -->
+  <app-icon name="bus"></app-icon>
+
+  <!-- text -->
+  <app-text type="default-white">
+    도착 예정 시간 조회
+  </app-text>
+</div>
+
+<!-- content -->
+<div class="sb-content">
+  <!-- search input -->
+  <app-search
+    (click)="openSearchModal()"
+    [readOnly]="true"></app-search>
+
+  <!-- map button -->
+  <button appFlatButton color="cornflower-blue">
+    <!-- label -->
+    <span>
+      지도에서 찾기
+    </span>
+
+    <!-- icon -->
+    <app-icon name="place"></app-icon>
+  </button>
+</div>
