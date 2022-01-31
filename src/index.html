@@ -1,13 +1,52 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>SacheonBus</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<html lang="ko">
+  <head>
+    <!-- ------Single Page Apps GitHub Pages Workaround------ -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search) {
+          const q = {};
+          l.search.slice(1).split('&').forEach(function (v) {
+            const a = v.split('=');
+            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+          });
+          if (q.p !== undefined) {
+            window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + (q.p || '') +
+              (q.q ? ('?' + q.q) : '') +
+              l.hash
+            );
+          }
+        }
+      }(window.location))
+    </script>
+
+    <meta charset="utf-8">
+    <title>사천버스정보시스템</title>
+    <base href="/">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+
+    <meta content="사천,사천시청,사천버스정보시스템,버스정보,버스도착정보,사천버스정보,사천버스,삼천포버스,삼천포,시내버스,BIS"
+          name="keywords">
+    <meta content="tk2rush90" name="author">
+    <meta content="사천버스정보시스템 - 비공식" name="description">
+  </head>
+  <body>
+    <app-root></app-root>
+
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=949bcb8235fbe014cf00a4fae835fb07"
+            type="text/javascript"></script>
+  </body>
 </html>

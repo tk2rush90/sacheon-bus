@@ -1,0 +1,22 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include padding(20px);
+  @include border(1px solid $gainsboro);
+  background-color: $white;
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  transition: all .1s;
+
+  &.sb-selected {
+    border-color: $cornflower-blue;
+    background-color: rgba($cornflower-blue, .1);
+  }
+}
+
+app-text {
+  margin-top: 10px;
+}

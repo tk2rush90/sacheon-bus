@@ -1,2 +1,36 @@
+<div class="sb-header">
+  <app-icon
+    (click)="close()"
+    name="close"></app-icon>
+</div>
+
 <!-- search -->
-<app-search></app-search>
+<app-search
+  (searchChange)="onSearchChange($event)"
+  [search]="search"></app-search>
+
+<!-- content container -->
+<div class="sb-content">
+  <!-- loading -->
+  <app-loading *ngIf="loading; else notLoading"></app-loading>
+
+  <!-- not loading -->
+  <ng-template #notLoading>
+    <ng-container *ngIf="hasStations; else noStations">
+      <!-- render stations -->
+      <app-station-search-result
+        (click)="close(item)"
+        *ngFor="let item of stations"
+        [station]="item"></app-station-search-result>
+    </ng-container>
+
+    <ng-template #noStations>
+      <!-- no data -->
+      <div class="sb-no-data">
+        <app-text type="grey-text">
+          검색 결과가 없습니다.
+        </app-text>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

@@ -1,0 +1,38 @@
+<!-- top info -->
+<div class="sb-top">
+  <!-- timer -->
+  <app-timer [time]="time"></app-timer>
+
+  <!-- render content -->
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
+
+<!-- bus tracking -->
+<app-bus-tracking
+  [arrival]="arrival"
+  [stations]="stations"></app-bus-tracking>
+
+<!-- render content -->
+<ng-container *ngTemplateOutlet="content"></ng-container>
+
+<!-- content template -->
+<ng-template #content>
+  <!-- content -->
+  <div class="sb-content">
+    <!-- line number -->
+    <app-text class="sb-line-number" type="line-number">
+      {{arrival.busName}}
+    </app-text>
+
+    <!-- flex -->
+    <div class="sb-flex">
+      <!-- bus icon -->
+      <app-icon name="bus"></app-icon>
+
+      <!-- current station -->
+      <app-text>
+        {{arrival.currentStation}} ({{stations}}정류장 전)
+      </app-text>
+    </div>
+  </div>
+</ng-template>

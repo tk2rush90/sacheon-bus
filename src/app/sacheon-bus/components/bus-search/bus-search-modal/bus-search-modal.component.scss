@@ -7,8 +7,43 @@
   @include default-shadow;
   background-color: $white;
   display: block;
-  width: calc(100% - 20px);
+  width: 100%;
   max-width: 600px;
   height: 500px;
 }
 
+// header
+.sb-header {
+  @include flex(center, flex-end);
+
+  app-icon {
+    ::ng-deep {
+      path {
+        fill: $black;
+      }
+    }
+  }
+}
+
+app-search {
+  margin-top: 20px;
+}
+
+// content container
+.sb-content {
+  margin-top: 20px;
+  overflow: auto;
+  // {total-height} - {input-height} - {input-margin} - {header-height} - {header-margin}
+  height: calc(100% - 50px - 20px - 24px - 20px);
+}
+
+// no data
+.sb-no-data {
+  @include flex(center, center);
+  height: 150px;
+  text-align: center;
+}
+
+app-station-search-result + app-station-search-result {
+  margin-top: 10px;
+}

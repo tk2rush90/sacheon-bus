@@ -1,0 +1,18 @@
+<!-- handle -->
+<div
+  (touchstart)="startDrag($event)"
+  class="sb-handle">
+  <div class="sb-handle-bar"></div>
+</div>
+
+<!-- content -->
+<div
+  #scrollContainer
+  class="sb-content">
+  <!-- render station item -->
+  <app-station-item
+    (click)="onStationClick(item)"
+    *ngFor="let item of stations"
+    [selected]="isSelected(item)"
+    [station]="item"></app-station-item>
+</div>

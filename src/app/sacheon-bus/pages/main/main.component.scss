@@ -1,0 +1,49 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include padding-bottom(20px);
+  display: block;
+}
+
+.sb-header {
+  transition: all .2s;
+
+  &.sb-fixed {
+    @include padding(20px 0);
+    @include default-shadow;
+    background-color: $cobalt;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+}
+
+app-bus-search {
+  margin-top: 20px;
+}
+
+// content container
+.sb-content {
+  margin-top: 20px;
+}
+
+app-arrival-info-result + app-arrival-info-result {
+  margin-top: 20px;
+}
+
+.sb-no-data {
+  @include default-shadow;
+  @include padding(20px);
+  @include flex(center, center);
+  background-color: $white;
+  text-align: center;
+}
+
+.sb-fixed + app-container {
+  // {header-height} + {margin}
+  margin-top: calc(100px + 20px);
+}

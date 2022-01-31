@@ -1,0 +1,88 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include default-shadow;
+  @include padding(20px);
+  display: block;
+  background-color: $white;
+}
+
+// top info
+.sb-top {
+  @include flex(center);
+
+  @include screen-under(425px) {
+    @include flex(center, center);
+  }
+}
+
+// top content
+.sb-content {
+  // {total-width} - {timer-width} - {margin}
+  width: calc(100% - 60px - 10px);
+  margin-left: 10px;
+}
+
+// line number
+.sb-line-number {
+  @include ellipsis;
+  width: 100%;
+}
+
+// flex
+.sb-flex {
+  @include flex(center);
+  margin-top: 5px;
+
+  app-icon {
+    ::ng-deep {
+      path {
+        fill: $dark-grey;
+      }
+    }
+
+    @include box(24px);
+  }
+
+  app-text {
+    @include ellipsis;
+    margin-left: 3px;
+    // {total-width} - {margin} - {icon-width}
+    width: calc(100% - 3px - 24px);
+  }
+}
+
+app-bus-tracking {
+  margin-top: 15px;
+
+  @include screen-under(425px) {
+    margin-top: 10px;
+  }
+}
+
+// content for mobile
+:host {
+  > .sb-content {
+    display: none;
+
+    @include screen-under(425px) {
+      display: block;
+      margin-left: 0;
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+}
+
+// content for pc
+.sb-top {
+  > .sb-content {
+    display: block;
+
+    @include screen-under(425px) {
+      display: none;
+    }
+  }
+}

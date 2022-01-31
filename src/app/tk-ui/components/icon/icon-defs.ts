@@ -178,4 +178,14 @@ export enum IconDefinitions {
       <path id="Path_112" data-name="Path 112" d="M12,2a7.955,7.955,0,0,0-8,8.2q0,4.77,7.34,11.23a1.017,1.017,0,0,0,1.33,0Q19.99,14.965,20,10.2A7.955,7.955,0,0,0,12,2Zm0,10a2,2,0,1,1,2-2A2.006,2.006,0,0,1,12,12Z" fill="#fff"/>
     </svg>
   `,
+  'next' = `
+    <svg id="arrow_forward_ios_black_24dp" xmlns="http://www.w3.org/2000/svg" width="14" height="19" viewBox="0 0 14 19">
+      <path id="Path_116" data-name="Path 116" d="M7.217,12.892a.7.7,0,0,0,.989,0L12.85,8.249a.556.556,0,0,0,0-.788L8.206,2.818a.7.7,0,1,0-.989.989l4.045,4.051L7.212,11.909A.7.7,0,0,0,7.217,12.892Z" transform="translate(-3.012 1.645)" fill="#0054a4"/>
+    </svg>
+  `,
+  'close' = `
+    <svg id="close_black_24dp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path id="Path_114" data-name="Path 114" d="M18.3,5.71a1,1,0,0,0-1.41,0L12,10.59,7.11,5.7A1,1,0,0,0,5.7,7.11L10.59,12,5.7,16.89A1,1,0,0,0,7.11,18.3L12,13.41l4.89,4.89a1,1,0,0,0,1.41-1.41L13.41,12,18.3,7.11A1,1,0,0,0,18.3,5.71Z" fill="#fff"/>
+    </svg>
+  `
 }

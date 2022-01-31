@@ -1,0 +1,62 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  position: relative;
+  display: block;
+}
+
+// track container
+.sb-tracks {
+  @include flex(center, space-between);
+}
+
+// place icon
+.sb-place {
+  ::ng-deep {
+    path {
+      fill: $cobalt;
+    }
+  }
+}
+
+// bus icon
+.sb-bus {
+  ::ng-deep {
+    path {
+      fill: $orange-red;
+    }
+  }
+}
+
+// dot
+.sb-dot {
+  @include ball(4px);
+  background-color: $cobalt;
+}
+
+// track
+.sb-track {
+  @include box(40px);
+  @include flex(center, center);
+  position: relative;
+
+  app-icon {
+    @include box(100%);
+  }
+}
+
+// station in track
+.sb-station {
+  @include ball(30px);
+  @include border(1px solid $cobalt);
+  @include flex(center, center);
+  color: $cobalt;
+  text-align: center;
+}
+
+app-station-info {
+  position: absolute;
+  bottom: 100%;
+}

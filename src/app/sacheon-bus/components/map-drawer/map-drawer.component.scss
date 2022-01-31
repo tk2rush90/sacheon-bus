@@ -1,0 +1,49 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include default-shadow;
+  background-color: $white;
+  display: block;
+
+  @include screen-under(768px) {
+    @include more-shadow;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+// drawer handle
+.sb-handle {
+  @include rect(100%, 20px);
+  display: none;
+
+  @include screen-under(768px) {
+    @include flex(center, center);
+  }
+}
+
+// handle bar
+.sb-handle-bar {
+  @include rect(150px, 5px);
+  background-color: $cobalt;
+  border-radius: 5px;
+}
+
+// content container
+.sb-content {
+  @include padding(20px);
+  position: relative;
+  overflow: auto;
+  height: 100%;
+
+  @include screen-under(768px) {
+    @include padding-top(0);
+    // {total-height} - {handle-height}
+    height: calc(100% - 20px);
+  }
+}
+
+app-station-item + app-station-item {
+  margin-top: 10px;
+}

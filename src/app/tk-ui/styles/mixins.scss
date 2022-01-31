@@ -348,3 +348,7 @@
 @mixin default-shadow() {
   box-shadow: $default-shadow;
 }
+
+@mixin more-shadow() {
+  box-shadow: $more-shadow;
+}

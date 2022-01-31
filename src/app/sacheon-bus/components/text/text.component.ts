@@ -6,7 +6,11 @@ export type TextType =
   | 'next-destination'
   | 'sub-title'
   | 'default-white'
-  | 'line-number';
+  | 'default-bold'
+  | 'line-number'
+  | 'small-white'
+  | 'small-white-transparent'
+  | 'hint-text';
 
 @Component({
   selector: 'app-text',
@@ -15,7 +19,7 @@ export type TextType =
 })
 export class TextComponent implements OnInit {
   // Set text type
-  @Input() type!: TextType;
+  @Input() type: TextType = 'default';
 
   constructor() {
   }
@@ -25,6 +29,13 @@ export class TextComponent implements OnInit {
    */
   @HostBinding('class.sb-default') get default(): boolean {
     return this.type === 'default';
+  }
+
+  /**
+   * Bind default bold text class
+   */
+  @HostBinding('class.sb-default-bold') get defaultBold(): boolean {
+    return this.type === 'default-bold';
   }
 
   /**
@@ -60,6 +71,27 @@ export class TextComponent implements OnInit {
    */
   @HostBinding('class.sb-line-number') get lineNumber(): boolean {
     return this.type === 'line-number';
+  }
+
+  /**
+   * Bind small-white class
+   */
+  @HostBinding('class.sb-small-white') get smallWhite(): boolean {
+    return this.type === 'small-white';
+  }
+
+  /**
+   * Bind small-white-transparent class
+   */
+  @HostBinding('class.sb-small-white-transparent') get smallWhiteTransparent(): boolean {
+    return this.type === 'small-white-transparent';
+  }
+
+  /**
+   * Bind hint-text class
+   */
+  @HostBinding('class.sb-hint-text') get hintText(): boolean {
+    return this.type === 'hint-text';
   }
 
   ngOnInit(): void {

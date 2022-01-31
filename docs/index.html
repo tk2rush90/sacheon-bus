@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <!-- ------Single Page Apps GitHub Pages Workaround------ -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search) {
+          const q = {};
+          l.search.slice(1).split('&').forEach(function (v) {
+            const a = v.split('=');
+            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+          });
+          if (q.p !== undefined) {
+            window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + (q.p || '') +
+              (q.q ? ('?' + q.q) : '') +
+              l.hash
+            );
+          }
+        }
+      }(window.location))
+    </script>
+
+    <meta charset="utf-8">
+    <title>사천버스정보시스템</title>
+    <base href="/sacheon-bus">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+
+    <meta content="사천,사천시청,사천버스정보시스템,버스정보,버스도착정보,사천버스정보,사천버스,삼천포버스,삼천포,시내버스,BIS" name="keywords">
+    <meta content="tk2rush90" name="author">
+    <meta content="사천버스정보시스템 - 비공식" name="description">
+  <style>@import"https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap";@charset "UTF-8";*{padding:0;margin:0}html{background-color:#0054a4}*{font-family:NanumGothic,Malgun Gothic,\b9d1\c740\ace0\b515,sans-serif}</style><link rel="stylesheet" href="/sacheon-bus/styles.492369075b193b4f.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/sacheon-bus/styles.492369075b193b4f.css"></noscript></head>
+  <body>
+    <app-root></app-root>
+
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=949bcb8235fbe014cf00a4fae835fb07" type="text/javascript"></script>
+  <script src="/sacheon-bus/runtime.d1edffc569b15649.js" type="module"></script><script src="/sacheon-bus/polyfills.e535190c3f75f427.js" type="module"></script><script src="/sacheon-bus/main.bcba51b856879eed.js" type="module"></script>
+
+</body></html>

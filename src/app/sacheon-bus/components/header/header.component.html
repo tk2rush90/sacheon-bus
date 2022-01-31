@@ -1,0 +1,35 @@
+<!-- header -->
+<div class="sb-header">
+  <!-- icon -->
+  <app-icon name="bus"></app-icon>
+
+  <!-- text -->
+  <app-text type="default-white">
+    도착 예정 시간 조회
+  </app-text>
+</div>
+
+<div
+  (click)="onClickRefresh()"
+  *ngIf="showTimer"
+  class="sb-timer">
+  <app-text type="small-white-transparent">
+    새로고침
+  </app-text>
+
+  <svg
+    height="24"
+    viewbox="0 0 24 24"
+    width="24">
+    <circle
+      [attr.stroke-dasharray]="dashArray"
+      [attr.stroke-dashoffset]="dashOffset"
+      cx="12"
+      cy="12"
+      fill="none"
+      r="10"
+      stroke="rgba(255, 255, 255, .5)"
+      stroke-linecap="round"
+      stroke-width="4"></circle>
+  </svg>
+</div>

@@ -8,6 +8,7 @@ import {MainModule} from '@sb/pages/main/main.module';
 import {ModalModule} from '@tk-ui/components/modal/modal.module';
 import {SubscriptionService} from '@tk-ui/services/common/subscription.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MapSearchModule} from '@sb/pages/map-search/map-search.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MainModule,
     ModalModule,
     BrowserAnimationsModule,
+    MapSearchModule,
   ],
   providers: [SubscriptionService],
   bootstrap: [AppComponent]

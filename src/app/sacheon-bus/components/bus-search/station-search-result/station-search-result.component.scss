@@ -1,0 +1,37 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include border(1px solid $gainsboro);
+  @include padding(20px);
+  display: block;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: darken($white, 5%);
+  }
+
+  &:active {
+    background-color: darken($white, 10%);
+  }
+}
+
+// next station
+.sb-next-station {
+  @include flex(center);
+  margin-top: 5px;
+
+  app-icon {
+    ::ng-deep {
+      path {
+        fill: $cobalt;
+      }
+    }
+  }
+
+  app-text {
+    margin-left: 3px;
+  }
+}

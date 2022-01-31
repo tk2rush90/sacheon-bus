@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BusSearchModalComponent } from './bus-search-modal.component';
+import {BusSearchModalComponent} from './bus-search-modal.component';
 
 describe('BusSearchModalComponent', () => {
   let component: BusSearchModalComponent;
@@ -8,9 +8,9 @@ describe('BusSearchModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BusSearchModalComponent ]
+      declarations: [BusSearchModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

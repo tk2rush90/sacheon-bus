@@ -1,0 +1,20 @@
+<!-- map header -->
+<app-map-header></app-map-header>
+
+<!-- content container -->
+<div class="sb-content">
+  <!-- drawer -->
+  <app-map-drawer
+    (stationConfirmed)="onStationConfirmed($event)"
+    (stationSelected)="onStationSelected($event)"
+    [selectedStation]="selectedStation"
+    [stations]="stations"></app-map-drawer>
+
+  <!-- map -->
+  <app-map
+    (coordinatesChange)="onCoordinatesChange($event)"
+    (stationConfirmed)="onStationConfirmed($event)"
+    (stationSelected)="onStationSelected($event)"
+    [selectedStation]="selectedStation"
+    [stations]="stations"></app-map>
+</div>

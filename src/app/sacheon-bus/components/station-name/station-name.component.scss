@@ -1,0 +1,9 @@
+// container
+:host {
+  display: block;
+}
+
+// text space
+app-text + app-text {
+  margin-left: 5px;
+}

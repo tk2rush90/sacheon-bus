@@ -1,0 +1,33 @@
+<!-- track container -->
+<div class="sb-tracks">
+  <!-- arrival track -->
+  <div class="sb-track">
+    <app-icon
+      class="sb-place"
+      name="place"></app-icon>
+  </div>
+
+  <!-- render tracks -->
+  <ng-container *ngFor="let item of tracks">
+    <!-- dot -->
+    <div class="sb-dot"></div>
+
+    <!-- track -->
+    <div class="sb-track">
+      <!-- render bus -->
+      <ng-container *ngIf="item.isBus; else station">
+        <!-- bus icon -->
+        <app-icon
+          class="sb-bus"
+          name="bus"></app-icon>
+      </ng-container>
+
+      <!-- render station -->
+      <ng-template #station>
+        <div class="sb-station">
+          {{item.index}}
+        </div>
+      </ng-template>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,15 @@
+<!-- station name -->
+<app-station-name [station]="station"></app-station-name>
+
+<!-- next station -->
+<div
+  *ngIf="station.nextStation"
+  class="sb-next-station">
+  <!-- next icon -->
+  <app-icon name="next"></app-icon>
+
+  <!-- next destination -->
+  <app-text type="next-destination">
+    {{station.nextStation}}
+  </app-text>
+</div>

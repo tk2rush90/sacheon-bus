@@ -1,8 +1,10 @@
 <!-- input -->
 <input
-  (ngModelChange)="searchChange.emit($event)"
+  (keydown.enter)="onInputEnter($event)"
+  (ngModelChange)="onSearchChange($event)"
   [ngModel]="search"
   [readonly]="readOnly"
+  appAutoFocus
   appInput
   placeholder="정류장 검색"/>
 

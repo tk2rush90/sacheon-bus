@@ -11,6 +11,13 @@
     color: $black;
   }
 
+  &.sb-default-bold {
+    font-size: 16px;
+    line-height: 19px;
+    color: $black;
+    font-weight: 700;
+  }
+
   &.sb-grey-text {
     font-size: 16px;
     line-height: 19px;
@@ -40,5 +47,28 @@
     font-weight: 700;
     line-height: 35px;
     color: $cobalt;
+
+    @include screen-under(425px) {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  &.sb-small-white {
+    font-size: 14px;
+    line-height: 16px;
+    color: $white;
+  }
+
+  &.sb-small-white-transparent {
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba($white, .5);
+  }
+
+  &.sb-hint-text {
+    font-size: 14px;
+    line-height: 16px;
+    color: $dark-grey;
   }
 }

@@ -1,0 +1,44 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  position: relative;
+  display: block;
+}
+
+// map
+.sb-map {
+  @include box(100%);
+}
+
+// overlays
+.sb-overlays {
+  @include box(100%);
+  @include top-left;
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+:host {
+  ::ng-deep {
+    .sb-bus {
+      @include box(24px);
+      cursor: pointer;
+      user-select: none;
+
+      path {
+        fill: $cobalt;
+      }
+
+      &.sb-selected {
+        transform: scale(1.1);
+      }
+
+      &.sb-not-selected {
+        opacity: .3;
+      }
+    }
+  }
+}

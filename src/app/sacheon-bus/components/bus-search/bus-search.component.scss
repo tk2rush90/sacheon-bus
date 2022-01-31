@@ -3,33 +3,6 @@
 
 // container
 :host {
-  display: block;
-}
-
-// search header
-.sb-header {
-  @include flex(center);
-  height: 30px;
-
-  // header icon
-  app-icon {
-    ::ng-deep {
-      path {
-        fill: $white;
-      }
-    }
-
-    @include box(24px);
-  }
-
-  // header text
-  app-text {
-    margin-left: 3px;
-  }
-}
-
-// content
-.sb-content {
   @include flex();
   margin-top: 20px;
 }
@@ -37,12 +10,38 @@
 app-search {
   // {total-width} - {button-width} - {margin}
   width: calc(100% - 200px - 20px);
+
+  @include screen-under(560px) {
+    // {total-width} - {button-width} - {margin}
+    width: calc(100% - 140px - 10px);
+  }
+
+  @include screen-under(425px) {
+    // {total-width} - {button-width} - {margin}
+    width: calc(100% - 50px - 10px);
+  }
 }
 
-// button
-button {
+// link button
+a {
   @include rect(200px, 50px);
   margin-left: 20px;
+
+  @include screen-under(560px) {
+    width: 140px;
+    margin-left: 10px;
+  }
+
+  @include screen-under(425px) {
+    @include padding(0 15px);
+    width: 50px;
+  }
+
+  span {
+    @include screen-under(425px) {
+      display: none;
+    }
+  }
 
   // place icon
   app-icon {
@@ -54,5 +53,9 @@ button {
 
     @include box(24px);
     margin-left: 3px;
+
+    @include screen-under(425px) {
+      margin-left: 0;
+    }
   }
 }

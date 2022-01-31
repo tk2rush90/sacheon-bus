@@ -1,0 +1,39 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center, space-between);
+  height: 30px;
+}
+
+// header
+.sb-header {
+  @include flex(center);
+
+  // header text
+  app-text {
+    margin-left: 3px;
+  }
+}
+
+// header icon
+app-icon {
+  ::ng-deep {
+    path {
+      fill: $white;
+    }
+  }
+
+  @include box(24px);
+}
+
+// timer
+.sb-timer {
+  @include flex(center);
+
+  svg {
+    transform: rotate(-90deg);
+    margin-left: 10px;
+  }
+}

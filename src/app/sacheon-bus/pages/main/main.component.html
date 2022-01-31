@@ -1,8 +1,41 @@
 <!-- main logo -->
 <app-logo></app-logo>
 
+<!-- header container -->
+<div
+  [class.sb-fixed]="fixHeader"
+  class="sb-header">
+  <app-container>
+    <!-- header -->
+    <app-header></app-header>
+
+    <!-- bus search -->
+    <app-bus-search [station]="station"></app-bus-search>
+  </app-container>
+</div>
+
 <!-- app container -->
 <app-container>
-  <!-- bus search -->
-  <app-bus-search></app-bus-search>
+  <!-- content container -->
+  <div class="sb-content">
+    <app-loading *ngIf="loading; else notLoading"></app-loading>
+
+    <ng-template #notLoading>
+      <!-- no data-->
+      <div
+        *ngIf="noResult; else result"
+        class="sb-no-data">
+        <app-text type="grey-text">
+          도착 예정 정보가 없습니다.
+        </app-text>
+      </div>
+
+      <ng-template #result>
+        <!-- render arrival info -->
+        <app-arrival-info-result
+          *ngFor="let item of arrivals"
+          [arrival]="item"></app-arrival-info-result>
+      </ng-template>
+    </ng-template>
+  </div>
 </app-container>

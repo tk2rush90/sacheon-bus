@@ -1,0 +1,41 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include box(60px);
+  position: relative;
+
+  &.sb-enough {
+    .sb-timer {
+      border-color: $gainsboro;
+    }
+  }
+
+  &.sb-close {
+    .sb-timer {
+      border-color: $lemon;
+    }
+  }
+
+  &.sb-very-close {
+    .sb-timer {
+      border-color: $orange-red;
+    }
+  }
+}
+
+// timer
+.sb-timer {
+  @include ball(60px);
+  @include border(5px solid);
+  position: relative;
+}
+
+// text
+app-text {
+  @include center;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+}
