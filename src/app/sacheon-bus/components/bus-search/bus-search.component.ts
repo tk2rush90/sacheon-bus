@@ -21,6 +21,8 @@ export class BusSearchComponent implements OnInit {
    * Open search modal
    */
   openSearchModal(): void {
-    this.modalService.open(BusSearchModalComponent);
+    this.modalService.open(BusSearchModalComponent, {
+      closeOnNavigating: true,
+    });
   }
 }
