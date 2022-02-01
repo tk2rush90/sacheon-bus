@@ -1,96 +1,96 @@
 <!DOCTYPE html><html lang="ko"><head>
-  <!-- ------Single Page Apps GitHub Pages Workaround------ -->
-  <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // https://github.com/rafrex/spa-github-pages
-    // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
-    // ----------------------------------------------------------------------
-    // This script checks to see if a redirect is present in the query string
-    // and converts it back into the correct url and adds it to the
-    // browser's history using window.history.replaceState(...),
-    // which won't cause the browser to attempt to load the new url.
-    // When the single page app is loaded further down in this file,
-    // the correct url will be waiting in the browser's history for
-    // the single page app to route accordingly.
-    (function (l) {
-      if (l.search) {
-        const q = {};
-        l.search.slice(1).split('&').forEach(function (v) {
-          const a = v.split('=');
-          q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
-        });
-        if (q.p !== undefined) {
-          window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + (q.p || '') +
-            (q.q ? ('?' + q.q) : '') +
-            l.hash
-          );
+    <!-- ------Single Page Apps GitHub Pages Workaround------ -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search) {
+          const q = {};
+          l.search.slice(1).split('&').forEach(function (v) {
+            const a = v.split('=');
+            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+          });
+          if (q.p !== undefined) {
+            window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + (q.p || '') +
+              (q.q ? ('?' + q.q) : '') +
+              l.hash
+            );
+          }
         }
-      }
-    }(window.location))
-  </script>
+      }(window.location))
+    </script>
 
-  <meta charset="utf-8">
-  <title>사천버스정보시스템</title>
-  <base href="/sacheon-bus">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="/sacheon-bus/assets/images/favicon.ico" rel="icon" type="image/x-icon">
+    <meta charset="utf-8">
+    <title>사천버스정보시스템</title>
+    <base href="/sacheon-bus">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="/sacheon-bus/assets/images/favicon.ico" rel="icon" type="image/x-icon">
 
-  <!-- 콘텐츠 제목 -->
-  <meta content="사천버스정보시스템" property="og:title">
-  <!-- 웹 페이지 URL -->
-  <meta content="https://tk2rush90.github.io/sacheon-bus" property="og:url">
-  <!-- 웹 페이지 타입 -->
-  <!-- https://ogp.me/#types 참고 -->
-  <!-- website, blog, music, video 등 -->
-  <meta content="website" property="og:type">
-  <!-- 미리보기 이미지 -->
-  <!-- 1200 x 627 -->
-  <meta content="/sacheon-bus/assets/images/thumbnail.png" property="og:image">
-  <!-- 웹 사이트명 -->
-  <meta content="사천버스정보시스템" property="og:site_name">
-  <!-- 웹 페이지 설명 -->
-  <meta content="사천버스정보시스템 - 비공식" property="og:description">
-  <!-- 트위터 카드 종류 -->
-  <!-- https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started 참고 -->
-  <meta content="summary" name="twitter:card">
-  <!-- 콘텐츠 제목 -->
-  <meta content="사천버스정보시스템" name="twitter:title">
-  <!-- 웹 페이지 설명 -->
-  <meta content="사천버스정보시스템 - 비공식" name="twitter:description">
-  <!-- 미리보기 이미지 -->
-  <!-- 120 x 120 -->
-  <meta content="/sacheon-bus/assets/images/thumbnail.png" name="twitter:image">
+    <!-- 콘텐츠 제목 -->
+    <meta content="사천버스정보시스템" property="og:title">
+    <!-- 웹 페이지 URL -->
+    <meta content="https://tk2rush90.github.io/sacheon-bus" property="og:url">
+    <!-- 웹 페이지 타입 -->
+    <!-- https://ogp.me/#types 참고 -->
+    <!-- website, blog, music, video 등 -->
+    <meta content="website" property="og:type">
+    <!-- 미리보기 이미지 -->
+    <!-- 1200 x 627 -->
+    <meta content="/sacheon-bus/assets/images/thumbnail.png" property="og:image">
+    <!-- 웹 사이트명 -->
+    <meta content="사천버스정보시스템" property="og:site_name">
+    <!-- 웹 페이지 설명 -->
+    <meta content="사천버스정보시스템 - 비공식" property="og:description">
+    <!-- 트위터 카드 종류 -->
+    <!-- https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started 참고 -->
+    <meta content="summary" name="twitter:card">
+    <!-- 콘텐츠 제목 -->
+    <meta content="사천버스정보시스템" name="twitter:title">
+    <!-- 웹 페이지 설명 -->
+    <meta content="사천버스정보시스템 - 비공식" name="twitter:description">
+    <!-- 미리보기 이미지 -->
+    <!-- 120 x 120 -->
+    <meta content="/sacheon-bus/assets/images/thumbnail.png" name="twitter:image">
 
-  <link href="/sacheon-bus/assets/images/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
-  <link href="/sacheon-bus/assets/images/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
-  <link href="/sacheon-bus/assets/images/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-  <link href="/sacheon-bus/assets/images/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
-  <link href="/sacheon-bus/assets/images/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
-  <link href="/sacheon-bus/assets/images/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
-  <link href="/sacheon-bus/assets/images/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
-  <link href="/sacheon-bus/assets/images/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
-  <link href="/sacheon-bus/assets/images/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
-  <link href="/sacheon-bus/assets/images/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png">
-  <link href="/sacheon-bus/assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-  <link href="/sacheon-bus/assets/images/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
-  <link href="/sacheon-bus/assets/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-  <link href="/sacheon-bus/assets/images/manifest.json" rel="manifest">
-  <meta content="##0054a4" name="msapplication-TileColor">
-  <meta content="/sacheon-bus/assets/images/ms-icon-144x144.png" name="msapplication-TileImage">
-  <meta content="##0054a4" name="theme-color">
+    <link href="/sacheon-bus/assets/images/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
+    <link href="/sacheon-bus/assets/images/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
+    <link href="/sacheon-bus/assets/images/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="/sacheon-bus/assets/images/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+    <link href="/sacheon-bus/assets/images/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="/sacheon-bus/assets/images/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+    <link href="/sacheon-bus/assets/images/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+    <link href="/sacheon-bus/assets/images/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+    <link href="/sacheon-bus/assets/images/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/sacheon-bus/assets/images/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png">
+    <link href="/sacheon-bus/assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/sacheon-bus/assets/images/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+    <link href="/sacheon-bus/assets/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="/sacheon-bus/assets/images/manifest.json" rel="manifest">
+    <meta content="##0054a4" name="msapplication-TileColor">
+    <meta content="/sacheon-bus/assets/images/ms-icon-144x144.png" name="msapplication-TileImage">
+    <meta content="##0054a4" name="theme-color">
 
-  <meta content="사천,사천시청,사천버스정보시스템,버스정보,버스도착정보,사천버스정보,사천버스,삼천포버스,삼천포,시내버스,BIS" name="keywords">
-  <meta content="tk2rush90" name="author">
-  <meta content="사천버스정보시스템 - 비공식" name="description">
+    <meta content="사천,사천시청,사천버스정보시스템,버스정보,버스도착정보,사천버스정보,사천버스,삼천포버스,삼천포,시내버스,BIS" name="keywords">
+    <meta content="tk2rush90" name="author">
+    <meta content="사천버스정보시스템 - 비공식" name="description">
 
-  <!-- google search advisor -->
-  <meta content="FvJr6-VJwBRr0W2f2KsCq9l6yjCc-pz34H2DfQvuapI" name="google-site-verification"/>
-  <style>@import"https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap";@charset "UTF-8";*{padding:0;margin:0}html{background-color:#0054a4}*{font-family:NanumGothic,Malgun Gothic,\b9d1\c740\ace0\b515,sans-serif}</style><link href="/sacheon-bus/styles.492369075b193b4f.css" media="print" onload="this.media='all'" rel="stylesheet"><noscript><link href="/sacheon-bus/styles.492369075b193b4f.css" rel="stylesheet"></noscript></head>
+    <!-- google search advisor -->
+    <meta content="FvJr6-VJwBRr0W2f2KsCq9l6yjCc-pz34H2DfQvuapI" name="google-site-verification">
+  <style>@import"https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap";@charset "UTF-8";*{padding:0;margin:0}html{background-color:#0054a4}*{font-family:NanumGothic,Malgun Gothic,\b9d1\c740\ace0\b515,sans-serif}</style><link rel="stylesheet" href="/sacheon-bus/styles.492369075b193b4f.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/sacheon-bus/styles.492369075b193b4f.css"></noscript></head>
   <body>
     <app-root></app-root>
 
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=949bcb8235fbe014cf00a4fae835fb07" type="text/javascript"></script>
-    <script src="/sacheon-bus/runtime.d1edffc569b15649.js" type="module"></script><script src="/sacheon-bus/polyfills.e535190c3f75f427.js" type="module"></script><script src="/sacheon-bus/main.1a740f41087f96ca.js" type="module"></script>
+  <script src="/sacheon-bus/runtime.d1edffc569b15649.js" type="module"></script><script src="/sacheon-bus/polyfills.e535190c3f75f427.js" type="module"></script><script src="/sacheon-bus/main.d53e3e3b6e8e411d.js" type="module"></script>
 
-  </body></html>
+</body></html>

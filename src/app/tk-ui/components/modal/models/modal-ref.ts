@@ -1,4 +1,4 @@
-import {ComponentFactoryResolver, ComponentRef, EventEmitter, Injector, ViewContainerRef} from '@angular/core';
+import {ComponentRef, EventEmitter, Injector, Type, ViewContainerRef} from '@angular/core';
 import {ModalGroupComponent} from '@tk-ui/components/modal/components/modal-group/modal-group.component';
 import {ModalBackdropComponent} from '@tk-ui/components/modal/components/modal-backdrop/modal-backdrop.component';
 import {SubscriptionService} from '@tk-ui/services/common/subscription.service';
@@ -45,13 +45,13 @@ export class ModalRef<T> {
    */
   private readonly _component: T;
 
-  private readonly _componentFactoryResolver: ComponentFactoryResolver;
+  // Parent injector to inject modal data.
+  private _parentInjector?: Injector;
 
   constructor(options: ModalRefOptions<T>) {
     this._component = options.component;
     this._subscriptionService = options.subscriptionService;
     this._modalOptions = options.modalOptions;
-    this._componentFactoryResolver = options.componentFactoryResolver;
   }
 
   /**
@@ -77,8 +77,10 @@ export class ModalRef<T> {
   /**
    * create modal group ref for component
    * @param viewContainerRef viewContainerRef of `ModalGroup`
+   * @param injector modal outlet injector
    */
-  createModalGroupRef(viewContainerRef: ViewContainerRef): void {
+  createModalGroupRef(viewContainerRef: ViewContainerRef, injector: Injector): void {
+    this._parentInjector = injector;
     this._modalGroupRef = viewContainerRef.createComponent(ModalGroupComponent);
     this._modalGroupRef.changeDetectorRef.detectChanges();
     this._createGroupChildren();
@@ -158,9 +160,10 @@ export class ModalRef<T> {
   private _createModalComponent(viewContainerRef: ViewContainerRef): void {
     if (this._modalGroupRef) {
       const injector = this._createModalInjector();
-      const factory = this._componentFactoryResolver.resolveComponentFactory(this._component as any);
 
-      this._modalComponentRef = viewContainerRef.createComponent<any>(factory, undefined, injector);
+      this._modalComponentRef = viewContainerRef.createComponent<T>(this._component as unknown as Type<T>, {
+        injector,
+      });
 
       this._modalComponentRef.changeDetectorRef.detectChanges();
     }
@@ -181,6 +184,7 @@ export class ModalRef<T> {
           useValue: this,
         },
       ],
+      parent: this._parentInjector,
     });
   }
 
@@ -241,6 +245,4 @@ export interface ModalRefOptions<T> {
    * modal options
    */
   modalOptions: ModalOptions;
-
-  componentFactoryResolver: ComponentFactoryResolver;
 }

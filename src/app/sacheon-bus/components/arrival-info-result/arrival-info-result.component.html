@@ -1,7 +1,7 @@
 <!-- top info -->
 <div class="sb-top">
   <!-- timer -->
-  <app-timer [time]="time"></app-timer>
+  <app-timer [time]="arrival.remainingTime"></app-timer>
 
   <!-- render content -->
   <ng-container *ngTemplateOutlet="content"></ng-container>
@@ -10,7 +10,7 @@
 <!-- bus tracking -->
 <app-bus-tracking
   [arrival]="arrival"
-  [stations]="stations"></app-bus-tracking>
+  [stations]="arrival.remainingCount"></app-bus-tracking>
 
 <!-- render content -->
 <ng-container *ngTemplateOutlet="content"></ng-container>
@@ -31,7 +31,7 @@
 
       <!-- current station -->
       <app-text>
-        {{arrival.currentStation}} ({{stations}}정류장 전)
+        {{arrival.currentStation}} ({{arrival.remainingCount}}정류장 전)
       </app-text>
     </div>
   </div>

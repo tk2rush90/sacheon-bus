@@ -5,6 +5,7 @@ import {SubscriptionService} from '@tk-ui/services/common/subscription.service';
 import {Station} from '@sb/models/station';
 import {SelectedStationService} from '@sb/services/common/selected-station.service';
 import {Router} from '@angular/router';
+import {ToastService} from '@tk-ui/components/toast/service/toast.service';
 
 @Component({
   selector: 'app-map-search',
@@ -23,6 +24,7 @@ export class MapSearchComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private toastService: ToastService,
     private busApiService: BusApiService,
     private selectedStationService: SelectedStationService,
     private subscriptionService: SubscriptionService,
@@ -71,6 +73,8 @@ export class MapSearchComponent implements OnInit {
         },
         error: err => {
           console.error(err);
+
+          this.toastService.error('오류가 발생했습니다');
         },
       });
 

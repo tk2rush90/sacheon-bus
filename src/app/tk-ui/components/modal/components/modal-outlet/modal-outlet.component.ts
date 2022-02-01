@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, Injector, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {ModalService} from '@tk-ui/components/modal/services/modal.service';
 import {NavigationStart, Router} from '@angular/router';
 import {SubscriptionService} from '@tk-ui/services/common/subscription.service';
@@ -24,6 +24,7 @@ export class ModalOutletComponent implements OnInit {
   id = RandomUtil.key();
 
   constructor(
+    public injector: Injector,
     private router: Router,
     private modalService: ModalService,
     private subscriptionService: SubscriptionService,

@@ -1,4 +1,4 @@
-import {ComponentFactoryResolver, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ModalOutletComponent} from '@tk-ui/components/modal/components/modal-outlet/modal-outlet.component';
 import {SubscriptionService} from '@tk-ui/services/common/subscription.service';
 import {ModalOptions, ModalRef} from '@tk-ui/components/modal/models/modal-ref';
@@ -26,7 +26,6 @@ export class ModalService {
 
   constructor(
     private subscriptionService: SubscriptionService,
-    private componentFactoryResolver: ComponentFactoryResolver,
   ) {
   }
 
@@ -48,7 +47,6 @@ export class ModalService {
       component,
       subscriptionService: this.subscriptionService,
       modalOptions: options,
-      componentFactoryResolver: this.componentFactoryResolver,
     });
 
     this._initializeModalRef(modalRef);
@@ -99,7 +97,7 @@ export class ModalService {
       const viewContainerRef = this._outlets[id].viewContainerRef;
 
       if (viewContainerRef) {
-        ref.createModalGroupRef(viewContainerRef);
+        ref.createModalGroupRef(viewContainerRef, this._outlets[id].injector);
       }
     });
   }

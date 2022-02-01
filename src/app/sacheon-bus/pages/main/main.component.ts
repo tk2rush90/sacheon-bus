@@ -6,6 +6,7 @@ import {Station} from '@sb/models/station';
 import {ArrivalInfo} from '@sb/models/arrival-info';
 import {BusTimerService} from '@sb/services/common/bus-timer.service';
 import {SelectedStationService} from '@sb/services/common/selected-station.service';
+import {ToastService} from '@tk-ui/components/toast/service/toast.service';
 
 @Component({
   selector: 'app-main',
@@ -26,6 +27,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   station?: Station;
 
   constructor(
+    private toastService: ToastService,
     private busApiService: BusApiService,
     private busTimerService: BusTimerService,
     private selectedStationService: SelectedStationService,
@@ -73,6 +75,8 @@ export class MainComponent implements OnInit, AfterViewInit {
         },
         error: err => {
           console.error(err);
+
+          this.toastService.error('오류가 발생했습니다');
         },
       });
 

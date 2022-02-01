@@ -43,6 +43,17 @@ export class ToastService {
   }
 
   /**
+   * Open error toast.
+   * @param message Error message.
+   */
+  error(message: string): void {
+    this.open({
+      type: ToastType.error,
+      message,
+    });
+  }
+
+  /**
    * create toast for view container ref
    * @param viewContainerRef view container ref
    * @param options toast options

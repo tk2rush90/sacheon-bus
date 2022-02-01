@@ -4,6 +4,8 @@ import {SubscriptionService} from '@tk-ui/services/common/subscription.service';
 import {BusApiService} from '@sb/services/api/bus-api.service';
 import {finalize} from 'rxjs';
 import {Station} from '@sb/models/station';
+import {ToastService} from '@tk-ui/components/toast/service/toast.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-bus-search-modal',
@@ -27,6 +29,7 @@ export class BusSearchModalComponent implements OnInit {
     // Previous selected station data.
     @Inject(MODAL_DATA) private data: Station | undefined,
     @Inject(MODAL_REF) private modalRef: ModalRef<BusSearchModalComponent>,
+    private toastService: ToastService,
     private busApiService: BusApiService,
     private subscriptionService: SubscriptionService,
   ) {
@@ -79,10 +82,14 @@ export class BusSearchModalComponent implements OnInit {
       .pipe(finalize(() => this.loading = false))
       .subscribe({
         next: res => this.stations = res,
-        error: err => {
+        error: (err: HttpErrorResponse) => {
           console.error(err);
           // Clear stations to display no-data message.
           this.stations = [];
+
+          if (err.status !== 400) {
+            this.toastService.error('오류가 발생했습니다');
+          }
         },
       });
 
