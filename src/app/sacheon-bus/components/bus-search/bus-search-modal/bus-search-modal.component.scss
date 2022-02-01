@@ -22,6 +22,8 @@
         fill: $black;
       }
     }
+
+    @include box(24px);
   }
 }
 

@@ -29,6 +29,8 @@
         fill: $cobalt;
       }
     }
+
+    @include rect(14px, 19px);
   }
 
   app-text {
