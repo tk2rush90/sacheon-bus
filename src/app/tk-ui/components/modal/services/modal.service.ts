@@ -89,6 +89,15 @@ export class ModalService {
   }
 
   /**
+   * Close all opened modals.
+   */
+  closeAll(): void {
+    while (this._modalOpenedIds.length > 0) {
+      this.closeLatestModal();
+    }
+  }
+
+  /**
    * initialize modalRef with component for all registered outlets
    * @param ref modalRef to initialize
    */

@@ -9,10 +9,20 @@
 <div
   #scrollContainer
   class="sb-content">
-  <!-- render station item -->
-  <app-station-item
-    (click)="onStationClick(item)"
-    *ngFor="let item of stations"
-    [selected]="isSelected(item)"
-    [station]="item"></app-station-item>
+  <ng-container *ngIf="hasStations; else noStations">
+    <!-- render station item -->
+    <app-station-item
+      (click)="onStationClick(item)"
+      *ngFor="let item of stations"
+      [selected]="isSelected(item)"
+      [station]="item"></app-station-item>
+  </ng-container>
+
+  <ng-template #noStations>
+    <div class="sb-no-data">
+      <app-text type="grey-text">
+        검색 결과가 없습니다.
+      </app-text>
+    </div>
+  </ng-template>
 </div>

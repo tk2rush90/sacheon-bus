@@ -10,6 +10,9 @@ import {StationSearchResultComponent} from './station-search-result/station-sear
 import {StationNameModule} from '@sb/components/station-name/station-name.module';
 import {LoadingModule} from '@sb/components/loading/loading.module';
 import {RouterModule} from '@angular/router';
+import {IconButtonModule} from '@sb/components/icon-button/icon-button.module';
+import { FavoriteModalComponent } from './favorite-modal/favorite-modal.component';
+import { HistoryModalComponent } from './history-modal/history-modal.component';
 
 
 @NgModule({
@@ -17,6 +20,8 @@ import {RouterModule} from '@angular/router';
     BusSearchComponent,
     BusSearchModalComponent,
     StationSearchResultComponent,
+    FavoriteModalComponent,
+    HistoryModalComponent,
   ],
   exports: [
     BusSearchComponent,
@@ -30,6 +35,7 @@ import {RouterModule} from '@angular/router';
     StationNameModule,
     LoadingModule,
     RouterModule,
+    IconButtonModule,
   ],
 })
 export class BusSearchModule {

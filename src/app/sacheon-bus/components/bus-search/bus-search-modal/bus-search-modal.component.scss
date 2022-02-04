@@ -1,29 +1,12 @@
 @import "mixins";
 @import "props";
 
-// container
-:host {
-  @include padding(20px);
-  @include default-shadow;
-  background-color: $white;
-  display: block;
-  width: 100%;
-  max-width: 600px;
-  height: 500px;
-}
+// header actions
+.sb-header-actions {
+  @include flex(center);
 
-// header
-.sb-header {
-  @include flex(center, flex-end);
-
-  app-icon {
-    ::ng-deep {
-      path {
-        fill: $black;
-      }
-    }
-
-    @include box(24px);
+  app-icon-button + app-icon-button {
+    margin-left: 20px;
   }
 }
 
@@ -33,19 +16,6 @@ app-search {
 
 // content container
 .sb-content {
-  margin-top: 20px;
-  overflow: auto;
   // {total-height} - {input-height} - {input-margin} - {header-height} - {header-margin}
   height: calc(100% - 50px - 20px - 24px - 20px);
-}
-
-// no data
-.sb-no-data {
-  @include flex(center, center);
-  height: 150px;
-  text-align: center;
-}
-
-app-station-search-result + app-station-search-result {
-  margin-top: 10px;
 }

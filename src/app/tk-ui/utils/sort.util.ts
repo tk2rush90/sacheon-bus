@@ -13,7 +13,7 @@ export interface SortColumn<T> {
   order: SortOrder;
   // value type
   // default is string
-  type: 'string' | 'date' | 'number';
+  type: 'string' | 'date' | 'number' | 'boolean';
 }
 
 export class SortUtil {
@@ -58,21 +58,29 @@ export class SortUtil {
           v1 = v1 || '';
           v2 = v2 || '';
 
-          return sortMethod(v1, v2);
+          break;
         }
 
         case 'number': {
           v1 = parseFloat(v1 as string);
           v2 = parseFloat(v2 as string);
 
-          return sortMethod(v1, v2);
+          break;
+
         }
 
         case 'date': {
           v1 = new Date(v1).getTime();
           v2 = new Date(v2).getTime();
 
-          return sortMethod(v1, v2);
+          break;
+        }
+
+        case 'boolean': {
+          v1 = v1 ? 1 : 0
+          v2 = v2 ? 1 : 0;
+
+          break;
         }
 
         // handle default as string
@@ -80,6 +88,8 @@ export class SortUtil {
           throw new Error(`Invalid value type: '${type}'`);
         }
       }
+
+      return sortMethod(v1, v2);
     };
   }
 

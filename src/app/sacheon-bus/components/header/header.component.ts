@@ -22,6 +22,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // State to show timer.
   showTimer = false;
 
+  // State of timer pending.
+  timerPending = false;
+
   // Animator.
   private _animator: Animator = new Animator<number>();
 
@@ -33,6 +36,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._subscribeStartTimer();
+    this._subscribeTimerPending();
+    this._subscribeTimerPendingEnded();
   }
 
   ngOnDestroy() {
@@ -56,6 +61,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
 
     this.subscriptionService.store('_subscribeStartTimer', sub);
+  }
+
+  /**
+   * Subscribe timer pending emitter to run timer.
+   */
+  private _subscribeTimerPending(): void {
+    const sub = this.busTimerService
+      .subscribeTimerPending(() => this.timerPending = true);
+
+    this.subscriptionService.store('_subscribeTimerPending', sub);
+  }
+
+  /**
+   * Subscribe timer pending ended emitter to run timer.
+   */
+  private _subscribeTimerPendingEnded(): void {
+    const sub = this.busTimerService
+      .subscribeTimerPendingEnded(() => this.timerPending = false);
+
+    this.subscriptionService.store('_subscribeTimerPendingEnded', sub);
   }
 
   /**

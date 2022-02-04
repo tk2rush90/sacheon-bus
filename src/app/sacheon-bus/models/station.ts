@@ -4,4 +4,5 @@ export interface Station {
   nextStation: string;
   x: string;
   y: string;
+  favorite?: boolean;
 }

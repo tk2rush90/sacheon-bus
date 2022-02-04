@@ -184,7 +184,7 @@ export class ModalRef<T> {
           useValue: this,
         },
       ],
-      parent: this._parentInjector,
+      parent: this._modalWrapperRef?.injector,
     });
   }
 

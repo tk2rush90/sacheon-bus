@@ -1,15 +1,25 @@
-<!-- station name -->
-<app-station-name [station]="station"></app-station-name>
+<!-- left container -->
+<div class="sb-left">
+  <!-- station name -->
+  <app-station-name [station]="station"></app-station-name>
 
-<!-- next station -->
-<div
-  *ngIf="station.nextStation"
-  class="sb-next-station">
-  <!-- next icon -->
-  <app-icon name="next"></app-icon>
+  <!-- next station -->
+  <div
+    *ngIf="station.nextStation"
+    class="sb-next-station">
+    <!-- next icon -->
+    <app-icon name="next"></app-icon>
 
-  <!-- next destination -->
-  <app-text type="next-destination">
-    {{station.nextStation}}
-  </app-text>
+    <!-- next destination -->
+    <app-text type="next-destination">
+      {{station.nextStation}}
+    </app-text>
+  </div>
 </div>
+
+<!-- star icon -->
+<app-icon
+  (click)="onClickStar($event)"
+  [class.sb-checked]="station.favorite"
+  [name]="starIcon"
+  class="sb-star"></app-icon>

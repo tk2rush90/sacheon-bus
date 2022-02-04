@@ -1,0 +1,44 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center);
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    span {
+      color: $black;
+    }
+
+    app-icon {
+      ::ng-deep {
+        path {
+          fill: $black;
+        }
+      }
+    }
+  }
+}
+
+span, app-icon {
+  transition: all .1s;
+}
+
+// label
+span {
+  color: $dark-grey;
+}
+
+// icon
+app-icon {
+  ::ng-deep {
+    path {
+      fill: $dark-grey;
+    }
+  }
+
+  @include box(24px);
+  margin-left: 3px;
+}

@@ -88,6 +88,13 @@ export class MapDrawerComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Get having stations state.
+   */
+  get hasStations(): boolean {
+    return this.stations.length > 0;
+  }
+
   // The rendered heights of the host element by dragging handle.
   private _height?: number;
 

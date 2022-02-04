@@ -6,11 +6,19 @@ import {finalize} from 'rxjs';
 import {Station} from '@sb/models/station';
 import {ToastService} from '@tk-ui/components/toast/service/toast.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {FavoriteStationService} from '@sb/services/common/favorite-station.service';
+import {ModalService} from '@tk-ui/components/modal/services/modal.service';
+import {FavoriteModalComponent} from '@sb/components/bus-search/favorite-modal/favorite-modal.component';
+import {HistoryModalComponent} from '@sb/components/bus-search/history-modal/history-modal.component';
+import {SortUtil} from '@tk-ui/utils/sort.util';
 
 @Component({
   selector: 'app-bus-search-modal',
   templateUrl: './bus-search-modal.component.html',
-  styleUrls: ['./bus-search-modal.component.scss'],
+  styleUrls: [
+    '../styles/modal-default-style.scss',
+    './bus-search-modal.component.scss'
+  ],
   providers: [
     SubscriptionService,
   ]
@@ -25,12 +33,20 @@ export class BusSearchModalComponent implements OnInit {
   // Searched station list.
   stations: Station[] = [];
 
+  // Raw favorite stations.
+  private _favorites: Station[] = [];
+
+  // Map favorite stations with id to check the loaded stations are favorite or not.
+  private _favoritesMap: {[k: string]: Station} = {};
+
   constructor(
     // Previous selected station data.
     @Inject(MODAL_DATA) private data: Station | undefined,
     @Inject(MODAL_REF) private modalRef: ModalRef<BusSearchModalComponent>,
+    private modalService: ModalService,
     private toastService: ToastService,
     private busApiService: BusApiService,
+    private favoriteStationService: FavoriteStationService,
     private subscriptionService: SubscriptionService,
   ) {
   }
@@ -43,6 +59,7 @@ export class BusSearchModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._subscribeFavoriteStations();
     this._setPreviousStation();
   }
 
@@ -64,6 +81,20 @@ export class BusSearchModalComponent implements OnInit {
   }
 
   /**
+   * Open the favorite modal.
+   */
+  openFavoriteModal(): void {
+    this.modalService.open(FavoriteModalComponent);
+  }
+
+  /**
+   * Open the history modal.
+   */
+  openHistoryModal(): void {
+    this.modalService.open(HistoryModalComponent);
+  }
+
+  /**
    * If previous station data exists, set to `search` and get station list.
    */
   private _setPreviousStation(): void {
@@ -81,7 +112,16 @@ export class BusSearchModalComponent implements OnInit {
       .getStationList(this.search || '')
       .pipe(finalize(() => this.loading = false))
       .subscribe({
-        next: res => this.stations = res,
+        next: res => {
+          this.stations = res;
+
+          // Check the favorite state of stations.
+          this.favoriteStationService.checkTheFavoriteStations(this.stations, this._favoritesMap);
+
+          // Sort stations by favorite state.
+          // This only works when the data first loaded.
+          this._sortStationsByFavorite();
+        },
         error: (err: HttpErrorResponse) => {
           console.error(err);
           // Clear stations to display no-data message.
@@ -95,5 +135,35 @@ export class BusSearchModalComponent implements OnInit {
 
     this.subscriptionService.store('_getStationList', sub);
     this.loading = true;
+  }
+
+  /**
+   * Subscribe favorite stations data.
+   */
+  private _subscribeFavoriteStations(): void {
+    const sub = this.favoriteStationService.subscribe(res => {
+      this._favorites = res.favorites;
+      this._favoritesMap = res.favoritesMap;
+
+      // Check the favorite state of stations.
+      this.favoriteStationService.checkTheFavoriteStations(this.stations, this._favoritesMap);
+    });
+
+    this.subscriptionService.store('_subscribeFavoriteStations', sub);
+  }
+
+  /**
+   * Sort the stations by favorite.
+   */
+  private _sortStationsByFavorite(): void {
+    const sortFunction = SortUtil.sortMethodWithOrderByColumn<Station>({
+      property: 'favorite',
+      // Read boolean value as number.
+      type: 'boolean',
+      // Order by `true(1)` to `false(0)`
+      order: 'desc',
+    });
+
+    this.stations = this.stations.sort(sortFunction);
   }
 }

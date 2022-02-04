@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {FavoriteStationService} from '@sb/services/common/favorite-station.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,9 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'sacheon-bus';
 
-  constructor() {
+  constructor(
+    private favoriteStationService: FavoriteStationService,
+  ) {
+    this.favoriteStationService.initialize();
   }
 }

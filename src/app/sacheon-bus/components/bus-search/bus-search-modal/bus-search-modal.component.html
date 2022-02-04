@@ -1,4 +1,14 @@
 <div class="sb-header">
+  <div class="sb-header-actions">
+    <app-icon-button (click)="openHistoryModal()" icon="history">
+      최근검색
+    </app-icon-button>
+
+    <app-icon-button (click)="openFavoriteModal()" icon="star">
+      즐겨찾기
+    </app-icon-button>
+  </div>
+
   <app-icon
     (click)="close()"
     name="close"></app-icon>

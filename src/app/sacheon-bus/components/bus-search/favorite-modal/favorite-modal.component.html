@@ -1,0 +1,31 @@
+<div class="sb-header">
+  <div class="sb-header-actions">
+    <app-icon-button icon="star">
+      즐겨찾기
+    </app-icon-button>
+  </div>
+
+  <app-icon
+    (click)="close()"
+    name="close"></app-icon>
+</div>
+
+<!-- content container -->
+<div class="sb-content">
+  <ng-container *ngIf="hasStations; else noStations">
+    <!-- render stations -->
+    <app-station-search-result
+      (click)="onClickStation(item)"
+      *ngFor="let item of stations"
+      [station]="item"></app-station-search-result>
+  </ng-container>
+
+  <ng-template #noStations>
+    <!-- no data -->
+    <div class="sb-no-data">
+      <app-text type="grey-text">
+        즐겨찾기 한 정류장이 없습니다.
+      </app-text>
+    </div>
+  </ng-template>
+</div>

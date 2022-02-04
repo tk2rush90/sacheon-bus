@@ -33,3 +33,16 @@
       stroke-width="4"></circle>
   </svg>
 </div>
+
+<div
+  *ngIf="timerPending"
+  class="sb-timer">
+  <app-text type="small-white-transparent">
+    새로고침 중
+  </app-text>
+
+  <app-loading-spinner
+    [colors]="['rgba(255, 255, 255, .5)']"
+    [duration]="300"
+    [size]="24"></app-loading-spinner>
+</div>

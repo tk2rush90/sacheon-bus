@@ -1,0 +1,18 @@
+@import "mixins";
+@import "props";
+
+app-icon-button {
+  ::ng-deep {
+    span {
+      color: $black;
+    }
+
+    app-icon {
+      path {
+        fill: $black;
+      }
+    }
+  }
+
+  pointer-events: none;
+}

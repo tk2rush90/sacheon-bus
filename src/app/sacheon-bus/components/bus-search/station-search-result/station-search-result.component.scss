@@ -5,7 +5,7 @@
 :host {
   @include border(1px solid $gainsboro);
   @include padding(20px);
-  display: block;
+  @include flex(center, space-between);
   cursor: pointer;
   user-select: none;
 
@@ -16,6 +16,12 @@
   &:active {
     background-color: darken($white, 10%);
   }
+}
+
+// left container
+.sb-left {
+  // {total} - {margin} - {icon-width}
+  max-width: calc(100% - 20px - 24px);
 }
 
 // next station
@@ -35,5 +41,21 @@
 
   app-text {
     margin-left: 3px;
+  }
+}
+
+// star icon
+.sb-star {
+  @include box(24px);
+  margin-left: 20px;
+  cursor: pointer;
+  user-select: none;
+
+  &.sb-checked {
+    ::ng-deep {
+      path {
+        fill: $cobalt;
+      }
+    }
   }
 }

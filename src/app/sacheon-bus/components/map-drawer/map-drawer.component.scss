@@ -15,7 +15,7 @@
 
 // drawer handle
 .sb-handle {
-  @include rect(100%, 20px);
+  @include rect(100%, 30px);
   display: none;
 
   @include screen-under(768px) {
@@ -40,10 +40,16 @@
   @include screen-under(768px) {
     @include padding-top(0);
     // {total-height} - {handle-height}
-    height: calc(100% - 20px);
+    height: calc(100% - 30px);
   }
 }
 
 app-station-item + app-station-item {
   margin-top: 10px;
+}
+
+.sb-no-data {
+  @include flex(center, center);
+  @include padding(20px 0);
+  text-align: center;
 }
