@@ -3,6 +3,8 @@ import {ModalService} from '@tk-ui/components/modal/services/modal.service';
 import {BusSearchModalComponent} from '@sb/components/bus-search/bus-search-modal/bus-search-modal.component';
 import {Station} from '@sb/models/station';
 import {SelectedStationService} from '@sb/services/common/selected-station.service';
+import {FavoriteModalComponent} from '@sb/components/bus-search/favorite-modal/favorite-modal.component';
+import {HistoryModalComponent} from '@sb/components/bus-search/history-modal/history-modal.component';
 
 @Component({
   selector: 'app-bus-search',
@@ -47,5 +49,19 @@ export class BusSearchComponent implements OnInit {
         }
       }
     });
+  }
+
+  /**
+   * Open the favorite modal.
+   */
+  openFavoriteModal(): void {
+    this.modalService.open(FavoriteModalComponent);
+  }
+
+  /**
+   * Open the history modal.
+   */
+  openHistoryModal(): void {
+    this.modalService.open(HistoryModalComponent);
   }
 }

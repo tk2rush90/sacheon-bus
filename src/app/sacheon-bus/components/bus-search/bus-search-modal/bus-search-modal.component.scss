@@ -1,15 +1,6 @@
 @import "mixins";
 @import "props";
 
-// header actions
-.sb-header-actions {
-  @include flex(center);
-
-  app-icon-button + app-icon-button {
-    margin-left: 20px;
-  }
-}
-
 app-search {
   margin-top: 20px;
 }

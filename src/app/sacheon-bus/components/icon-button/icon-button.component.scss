@@ -9,13 +9,13 @@
 
   &:hover {
     span {
-      color: $black;
+      color: rgba($white, .8);
     }
 
     app-icon {
       ::ng-deep {
         path {
-          fill: $black;
+          fill: rgba($white, .8);
         }
       }
     }
@@ -28,14 +28,14 @@ span, app-icon {
 
 // label
 span {
-  color: $dark-grey;
+  color: $white;
 }
 
 // icon
 app-icon {
   ::ng-deep {
     path {
-      fill: $dark-grey;
+      fill: $white;
     }
   }
 

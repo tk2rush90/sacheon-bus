@@ -8,8 +8,6 @@ import {ToastService} from '@tk-ui/components/toast/service/toast.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {FavoriteStationService} from '@sb/services/common/favorite-station.service';
 import {ModalService} from '@tk-ui/components/modal/services/modal.service';
-import {FavoriteModalComponent} from '@sb/components/bus-search/favorite-modal/favorite-modal.component';
-import {HistoryModalComponent} from '@sb/components/bus-search/history-modal/history-modal.component';
 import {SortUtil} from '@tk-ui/utils/sort.util';
 
 @Component({
@@ -78,20 +76,6 @@ export class BusSearchModalComponent implements OnInit {
   onSearchChange(search: string): void {
     this.search = search;
     this._getStationList();
-  }
-
-  /**
-   * Open the favorite modal.
-   */
-  openFavoriteModal(): void {
-    this.modalService.open(FavoriteModalComponent);
-  }
-
-  /**
-   * Open the history modal.
-   */
-  openHistoryModal(): void {
-    this.modalService.open(HistoryModalComponent);
   }
 
   /**

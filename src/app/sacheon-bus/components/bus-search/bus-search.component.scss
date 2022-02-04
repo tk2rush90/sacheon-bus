@@ -3,8 +3,13 @@
 
 // container
 :host {
-  @include flex();
   margin-top: 20px;
+  display: block;
+}
+
+// content
+.sb-content {
+  @include flex();
 }
 
 app-search {
@@ -57,5 +62,15 @@ a {
     @include screen-under(425px) {
       margin-left: 0;
     }
+  }
+}
+
+// header actions
+.sb-header-actions {
+  @include flex(center);
+  margin-top: 20px;
+
+  app-icon-button + app-icon-button {
+    margin-left: 20px;
   }
 }

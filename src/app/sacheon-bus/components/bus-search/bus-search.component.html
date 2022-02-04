@@ -1,17 +1,31 @@
-<!-- search input -->
-<app-search
-  (click)="openSearchModal()"
-  [readOnly]="true"
-  [search]="stationLabel"></app-search>
+<!-- content -->
+<div class="sb-content">
+  <!-- search input -->
+  <app-search
+    (click)="openSearchModal()"
+    [readOnly]="true"
+    [search]="stationLabel"></app-search>
 
-<!-- map button -->
-<a
-  [routerLink]="['/map-search']"
-  appFlatButton
-  color="cornflower-blue">
-  <!-- label -->
-  <span>지도에서 찾기</span>
+  <!-- map button -->
+  <a
+    [routerLink]="['/map-search']"
+    appFlatButton
+    color="cornflower-blue">
+    <!-- label -->
+    <span>지도에서 찾기</span>
 
-  <!-- icon -->
-  <app-icon name="place"></app-icon>
-</a>
+    <!-- icon -->
+    <app-icon name="place"></app-icon>
+  </a>
+</div>
+
+<!-- header actions -->
+<div class="sb-header-actions">
+  <app-icon-button (click)="openHistoryModal()" icon="history">
+    최근검색
+  </app-icon-button>
+
+  <app-icon-button (click)="openFavoriteModal()" icon="star">
+    즐겨찾기
+  </app-icon-button>
+</div>
