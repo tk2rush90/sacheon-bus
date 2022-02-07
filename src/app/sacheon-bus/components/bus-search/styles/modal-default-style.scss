@@ -32,6 +32,8 @@
 // content container
 .sb-content {
   margin-top: 20px;
+  // {total-height} - {header-height} - {header-margin}
+  height: calc(100% - 24px - 20px);
   overflow: auto;
 }
 
